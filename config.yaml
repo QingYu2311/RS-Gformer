@@ -1,0 +1,45 @@
+experiment:
+  name: "EXP01C_Geometry_Rician_Strong_Eve"
+  description: "场景三：Geometry + Rician + Strong Eve，相对CSI误差"
+  seed: 42
+
+## [32, 32, 32, 32]比[8, 32, 32, 8]好
+system:
+  K: 4
+  Eve: 4
+  NT: 8
+  SNR_dB_LU: 10
+  SNR_dB_Eve: 10
+  mu: 0.1
+  rician_K_dB: 10.0
+  SNR_dB_LU_train_choices: [0, 5, 10]
+  SNR_dB_LU_test_choices: [-5, 0, 5, 10, 15]
+
+model:
+  layers: [128,128,128]
+
+loss: "one"
+
+training:
+  batch_size: 500
+  learning_rate: 0.002
+  max_epoch: 200
+  number_train: 100000
+  number_test: 10000
+
+  pgd_steps_train: 10
+  pgd_steps_eval: 10
+  pgd_lr: 0.2
+  eval_interval: 5
+
+  weight_decay: 0.0
+  scheduler: "multi_step"
+  gamma: 0.3
+
+device:
+  gpu_id: 0
+
+logging:
+  tensorboard_dir: "./runs"
+  log_freq: 5
+  save_model: true
