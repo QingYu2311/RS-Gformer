@@ -602,11 +602,11 @@ if __name__ =='__main__':
     with open('./config.yaml','r',encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
-    K = 8
-    Eve = 8
-    NT = 16
+    K = 4
+    Eve = 4
+    NT = 8
 
-    mu = 0.2
+    mu = 0.1
 
     d_LU_min = 100.0
     d_LU_max = 500.0
@@ -630,7 +630,6 @@ if __name__ =='__main__':
     print(f"Eve-to-paired-LU distance range: [{d_near_min},{d_near_max}] m")
     print(f"Rician K-factor           : {rician_K_dB} dB")
     print(f"Carrier frequency         : {fc_hz/1e9:.2f} GHz")
-    print("PL(d)=128.1+37.6log10(d_km) dB")
     print("="*70)
 
     lu_position_train_path = (

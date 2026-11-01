@@ -192,7 +192,7 @@ if __name__=='__main__':
         f'{model_save_dir}/model_Robust_{model_name}_'
         f'Kmean{Kmean}_Evemean{Evemean}_Kmax{max_pair_train}_NT{NT}_'
         f'KR{rician_K_dB}dB_SNRLU{SNR_dB_LU}_SNREve{SNR_dB_Eve}_'
-        f'mu{mu}_maxepoch{max_epoch}_numbertrain_{number_train}pth')
+        f'mu{mu}_maxepoch{max_epoch}.pth')
     print(f'Checkpoint selection pairs: K=Eve={selection_pair_list},metric=mean worst-case SSR across K')
 
     start_time = time.time()
